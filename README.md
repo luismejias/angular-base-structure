@@ -1,2 +1,2 @@
-# angular-base-striecture
+# angular-base-structure
 Angular Base Structure 

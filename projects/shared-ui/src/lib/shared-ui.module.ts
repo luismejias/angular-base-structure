@@ -1,21 +1,20 @@
 import { AngularMaterialModule } from '@bs-angular-material';
 import { NgModule } from '@angular/core';
-import { SharedUiComponent } from './shared-ui.component';
+import { SelectComponent } from './components/select/select.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { CommonModule } from '@angular/common';
+import { InputComponent } from './components/input/input.component';
 
-const importsExports = [
-  AngularMaterialModule
-];
-
+const COMPONENTS = [ SelectComponent, CheckboxComponent, InputComponent ]
 @NgModule({
-  declarations: [
-    SharedUiComponent
-  ],
+  declarations: [ COMPONENTS ],
   imports: [
-    importsExports
+    AngularMaterialModule,
+    CommonModule
   ],
   exports: [
-    SharedUiComponent,
-    importsExports
+    AngularMaterialModule,
+    COMPONENTS
   ]
 })
 export class SharedUiModule { }

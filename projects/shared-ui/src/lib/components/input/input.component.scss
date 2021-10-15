@@ -1,0 +1,40 @@
+.general-input {
+	display: flex;
+	flex-direction: column;
+
+	&__hint {
+		color: blue;
+		font-size:24px;
+		padding: 10px 14px;
+	}
+
+	&__required {
+		color: pink;
+	}
+
+	&__error-label {
+		font-size: 14px;
+		color:red;
+		margin-left: 10px;
+	}
+
+	&__icon {
+		font-size: 24px;
+		color: orange;
+	}
+
+	&__prefix-icon {
+		display: flex;
+		font-size: 24px;
+		color: orange;
+		margin: 0 16px 0 0;
+	}
+
+	&__password-icon {
+		font-size: 24px;
+		cursor: pointer;
+		user-select: none;
+		display: block;
+		max-height: 24px;
+	}
+}

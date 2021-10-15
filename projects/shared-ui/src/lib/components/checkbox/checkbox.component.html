@@ -1,0 +1,11 @@
+<p>checkbox works!</p>
+
+<div>
+  {{foods| json }}
+</div>
+
+<div *ngFor="let item of foods">
+  <div>{{item.value}}</div>
+</div>
+
+

@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { AngularMaterialComponent } from './angular-material.component';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const importExports = [
-  MatSliderModule
+  FormsModule,
+  ReactiveFormsModule,
+  MatSliderModule,
+  MatInputModule,
+  MatIconModule,
+  MatSelectModule
 ];
 
 @NgModule({
@@ -10,7 +19,7 @@ const importExports = [
     AngularMaterialComponent
   ],
   imports: [
-    importExports,
+    importExports
   ],
   exports: [
     AngularMaterialComponent,

@@ -1,0 +1,19 @@
+.select-field {
+	flex-direction: column;
+	display: flex;
+
+	&__required {
+		color: red;
+	}
+
+	&__field {
+		position: relative;
+	}
+
+	&__arrow-icon {
+		position: absolute;
+		font-size: 24px;
+		right: 0;
+		top: 10px;
+	}
+}

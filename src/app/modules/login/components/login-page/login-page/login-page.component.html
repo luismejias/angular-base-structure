@@ -1,1 +1,21 @@
 <p>login-page works!</p>
+<form [formGroup]="searchForm">
+  <su-select 
+  [id]="'contact-search-form__category'" 
+  [data]="categoryOptions" 
+  (handleChange)="onInputChange()"
+  [label]="'test'" formControlName="category">
+</su-select>
+
+<su-input 
+  [label]="'input test'"
+  formControlName="searchKeyword"
+  mcyOnlyNumbers
+  [id]="'enterprises-tab__search-form-input'"
+ 
+  class="enterprises-tab__search-form-input"
+  maxLength="10"
+  [prefixIcon]="'icono'"></su-input>
+</form>
+
+<su-checkbox></su-checkbox>

@@ -1,10 +1,15 @@
-const baseConfig = require('../../jest.config');
-
 module.exports = {
-  ...baseConfig,
-  globals: {
-    'ts-jest': {
-      tsConfig: '<rootDir>/projects/angular-material/tsconfig.spec.json',
-    },
-  },
-};
+  "roots": [
+    "<rootDir>/src"
+  ],
+  testMatch: [
+    "**/__tests__/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js)"
+  ],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  }, 
+  moduleNameMapper: {
+     "^@fs/(.*)$": "<rootDir>/src/lib/$1"
+   }
+}

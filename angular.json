@@ -81,12 +81,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -144,11 +142,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/shared-ui/src/test.ts",
-            "tsConfig": "projects/shared-ui/tsconfig.spec.json",
-            "karmaConfig": "projects/shared-ui/karma.conf.js"
+            "tsConfig": "projects/shared-ui/tsconfig.spec.json"
           }
         },
         "lint": {
@@ -184,11 +180,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/angular-material/src/test.ts",
-            "tsConfig": "projects/angular-material/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-material/karma.conf.js"
+            "tsConfig": "projects/angular-material/tsconfig.spec.json"
           }
         },
         "lint": {

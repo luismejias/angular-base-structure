@@ -9,6 +9,8 @@
 
 # dependencies
 /node_modules
+projects/shared-ui/node_modules
+projects/angular-material/node_modules
 
 # profiling files
 chrome-profiler-events*.json

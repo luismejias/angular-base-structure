@@ -1,4 +1,5 @@
 import 'zone.js';
+import 'zone.js/testing';
 import 'jest-preset-angular';
 
 /* global mocks for jsdom */

@@ -3,7 +3,7 @@
     <mat-form-field appearance="legacy" style="width: 50%;">
       <mat-label>Buscar</mat-label>
       <mat-icon matSuffix>search</mat-icon>
-      <input matInput formControlName="searchField" suChangeToUppercase />
+      <input matInput formControlName="searchField" placeholder="Búsqueda por Nombre o Id"/>
     </mat-form-field>
     <span  class="heroes-page__btn-add">
       Agregar
@@ -13,5 +13,6 @@
        *ngIf="loadingData">
     <mat-spinner *ngIf="loadingData"></mat-spinner>
   </div>
-  <app-heroes-table  [dataSource]="dataSource" *ngIf="!loadingData"></app-heroes-table>  
+  <app-heroes-table  [dataSource]="dataSource" *ngIf="!loadingData && dataSourceLength"></app-heroes-table>
+  <su-no-data-found *ngIf="!loadingData && !dataSourceLength"></su-no-data-found>
 </div>

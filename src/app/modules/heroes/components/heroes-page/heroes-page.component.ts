@@ -10,11 +10,11 @@ import { HeroeService } from '../../services/heroe.service';
   styleUrls: ['./heroes-page.component.scss']
 })
 export class HeroesPageComponent implements OnInit, OnDestroy {
-  originalDataSource = new MatTableDataSource<any>([]);
+  dataSource = new MatTableDataSource<Heroe>([]);
+  originalDataSource = new MatTableDataSource<Heroe>([]);
   loadingData: boolean = true;
-  dataSource = new MatTableDataSource<any>([]);
-  subscription = new Subscription();
   searchForm: FormGroup;
+  subscription = new Subscription();
   constructor(
     private fb: FormBuilder,
     private heroeService: HeroeService
@@ -30,11 +30,8 @@ export class HeroesPageComponent implements OnInit, OnDestroy {
   }
 
   searchFieldChanges() {
-   
-    
     this.searchForm.get('searchField').valueChanges.subscribe((value) => {
       this.filterHeroes(value);
-      console.log('searchFieldChanges',value );
     });
   }
 
@@ -49,7 +46,11 @@ export class HeroesPageComponent implements OnInit, OnDestroy {
             this.loadingData = false;
           }, 2000);
         })
-    )
+    );
+  }
+
+  get dataSourceLength(): boolean {
+    return this.dataSource.data.length > 0;
   }
 
   filterHeroes(searching: string = ''): void {
@@ -58,6 +59,7 @@ export class HeroesPageComponent implements OnInit, OnDestroy {
          heroe.name
            .toLowerCase()
            .includes(searching.toLowerCase() || '')
+           || heroe.id.includes(searching.toLowerCase() || '')
        );
      });
   }

@@ -1,8 +1,21 @@
 export interface Heroe {
+  id: string;
   name: string;
   biography: string;
   image: string;
   appearance: string;
   house: string;
-  idx?:number;
+}
+
+export function makeHeroe(data: Partial<Heroe>): Heroe {
+  const defaultValue: Heroe = {
+    id: '',
+    name: '',
+    biography: '',
+    image: '',
+    appearance: '',
+    house: '',
+  };
+
+  return { ...defaultValue, ...data };
 }

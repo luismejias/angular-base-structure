@@ -44,11 +44,10 @@ export class HeroesPageComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.heroeService.getHeroes()
         .subscribe((res: Heroe[]) => {
+          if(res)
           this.dataSource.data = res;
-          this.originalDataSource.data = res;
-          setTimeout(() => {
-            this.loadingData = false;
-          }, 2000);
+          this.originalDataSource.data = res;         
+          this.loadingData = false;  
         })
     );
   }

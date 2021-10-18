@@ -19,3 +19,8 @@ export function makeHeroe(data: Partial<Heroe>): Heroe {
 
   return { ...defaultValue, ...data };
 }
+
+export interface ImageError {
+  key: string;
+  message: string;
+}

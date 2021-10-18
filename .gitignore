@@ -11,7 +11,6 @@
 /node_modules
 projects/shared-ui/node_modules
 projects/shared-ui/src/assets/coverage
-
 projects/angular-material/node_modules
 
 # profiling files

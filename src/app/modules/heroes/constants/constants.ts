@@ -1,5 +1,4 @@
 export const HOUSES = [
-	{ value: 'all', viewValue: 'Todos' },
 	{ value: 'marvel', viewValue: 'Marvel' },
 	{ value: 'dc', viewValue: 'DC' }
 ];

@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.button_upload {
+	text-align: center;
+	input[type='file'] {
+		display: none;
+	}
+
+	.icon-check {
+		color: #6daf25;
+	}
+
+	.icon-denied {
+		color: #3f3f3f;
+	}
+
+	.btn-upload {
+		display: flex;
+		background-color: transparent;
+		border: 1px solid #e53935;
+		border-radius: 4px;
+		min-width: 110px;
+		color: #e53935;
+		cursor: pointer;
+		margin: 0 auto;
+		font-family: Roboto, 'Helvetica Neue', sans-serif;
+		font-size: 16px;
+		height: auto;
+		padding: 4px;
+		justify-content: center;
+		align-items: center;
+		width: auto;
+		&:hover {
+			background-color: #e53935;
+			color: #fff;
+		}
+		.icono_ok {
+			text-align: center;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.heroes-table {
+  display: flex;
+  flex-direction: column;
+
+  &__item-header {
+    justify-content: center;
+  }
+
+  &__biography {
+    width: 40%;
+    text-align: justify;
+    padding: 10px 0px;
+  }
+
+ &__icon-edit {
+   cursor: pointer;
+   color: royalblue;
+   font-size: 30px;
+   margin-left: 8px;
+   &:hover {
+     color: #FFC300;
+     transform: scale(1.2);
+   }
+ }
+
+ &__icon-delete {
+  cursor: pointer;
+  color: royalblue;
+  font-size: 30px;
+  margin-left: 8px;
+  &:hover {
+    color: red;
+    transform: scale(1.2);
+  }
+}
+}

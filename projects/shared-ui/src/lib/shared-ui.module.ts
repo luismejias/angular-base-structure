@@ -7,21 +7,25 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { ChangeToUppercaseDirective } from './directives/change-to-uppercase.directive';
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found.component';
-
+import { ModalGenericComponent } from './components/modal-generic/modal-generic.component';
 
 const importsExports = [
   SharedUiComponent,
   HeaderComponent,
   MenuComponent,
   NoDataFoundComponent,
+  ModalGenericComponent,
   ChangeToUppercaseDirective
+  
 ];
 @NgModule({
   declarations: [importsExports],
   imports: [
     CommonModule,
     RouterModule,
-    AngularMaterialModule],
-  exports: [AngularMaterialModule, importsExports]
+    AngularMaterialModule    
+  ],
+  exports: [AngularMaterialModule, importsExports],
+  providers: []
 })
 export class SharedUiModule { }

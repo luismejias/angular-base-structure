@@ -6,13 +6,17 @@ import { HeroesPageComponent } from './components/heroes-page/heroes-page.compon
 import { HeroesTableComponent } from './components/heroes-table/heroes-table.component';
 import { SharedUiModule } from '@bs-shared-ui';
 import { HeroeService } from './services/heroe.service';
+import { SaveHeroeComponent } from './components/save-heroe/save-heroe.component';
+import { EditHeroeComponent } from './components/edit-heroe/edit-heroe.component';
 
 
 
 @NgModule({
   declarations: [
     HeroesTableComponent,
-    HeroesPageComponent
+    HeroesPageComponent,
+    SaveHeroeComponent,
+    EditHeroeComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,39 @@
+.save-heroe {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  &__title {
+    font-size: 24px;
+    color: #3f51b5;
+  }
+
+  &__input {
+    width: 100%;
+    margin:10px 0px;
+  }
+
+  &__preview-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  &__preview {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__title-box {
+    border-left: 8px solid #188422;
+    padding-left: 4px;
+    margin-bottom: 20px;
+  }
+
+  &__button-box {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+    margin-top: 40px;
+  }
+ }

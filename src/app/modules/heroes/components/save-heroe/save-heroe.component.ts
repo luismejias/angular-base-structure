@@ -1,18 +1,48 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
+import {
+	DateAdapter,
+	MAT_DATE_FORMATS,
+	MAT_DATE_LOCALE,
+} from '@angular/material/core';
+import {
+	MomentDateAdapter,
+	MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ImageService } from '@bs-shared-ui';
 import { HOUSES } from '../../constants/constants';
-import { ImageError } from '../../models/heroe.model';
+import { Heroe, ImageError, makeHeroe } from '../../models/heroe.model';
 
+export const MY_FORMATS = {
+	parse: {
+		dateInput: 'DD/MM/YYYY',
+	},
+	display: {
+		dateInput: 'DD/MM/YYYY',
+		monthYearLabel: 'MMM YYYY',
+		dateA11yLabel: 'LL',
+		monthYearA11yLabel: 'DD/MM/YYYY',
+	},
+};
 @Component({
   selector: 'app-save-heroe',
   templateUrl: './save-heroe.component.html',
-  styleUrls: ['./save-heroe.component.scss']
+  styleUrls: ['./save-heroe.component.scss'],
+  providers: [
+		{
+			provide: DateAdapter,
+			useClass: MomentDateAdapter,
+			deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+		},
+
+		{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+		{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+	],
 })
 export class SaveHeroeComponent implements OnInit {
   saveHeroeForm: FormGroup;
-	image: any;
 	imageFinal: any;
 	imageName: string;
 	filePath: string;
@@ -41,7 +71,7 @@ export class SaveHeroeComponent implements OnInit {
 			],
 			biography: ['',
         Validators.compose([
-					Validators.maxLength(50),
+					Validators.maxLength(250),
 					Validators.minLength(2),
 					Validators.pattern(/^[0-9a-zA-Z.-\w\s\u00f1 \u00d1]*$/),
 					Validators.required,
@@ -50,19 +80,12 @@ export class SaveHeroeComponent implements OnInit {
       appearance: ['', Validators.required],
 			image: [''],
 			house: [
-				this.data.quantityAvailable,
-				Validators.compose([
-					Validators.maxLength(10),
-					Validators.minLength(1),
-					Validators.pattern('^[0-9]*$'),
-					Validators.required,
-				]),
+				'',	Validators.compose([Validators.required]),
 			],
 		});
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get biography() {
     return this.saveHeroeForm.get('biography');
@@ -72,36 +95,64 @@ export class SaveHeroeComponent implements OnInit {
     return this.saveHeroeForm.get('name');
   }
 
-  save() {
-		this.dialogRef.close();
+  get appearance() {
+    return this.saveHeroeForm.get('appearance');
+  }
+
+  get image() {
+    return this.saveHeroeForm.get('image');
+  }
+
+  get house() {
+    return this.saveHeroeForm.get('name');
+  }
+
+  save() {    
+    let id = 12;
+    id++;
+    let idAux = id.toString();
+    const { name, biography, appearance, house } = this.saveHeroeForm.value;
+		const heroe: Heroe = makeHeroe({
+			id: idAux,
+			image: this.previewUrl,
+			name,
+      biography,
+      appearance: appearance.toISOString(),
+      house
+		});
+		this.dialogRef.close({
+			...heroe
+		});
 	}
 
   close() {
 		this.dialogRef.close();
 	}
 
-  private fileProgress(fileInput: any) {
-    this.fileData = <File>fileInput.target.files[0];
-    this.saveHeroeForm.get('profile').setValue(this.fileData);
-  }
-
-  private preview() {
-    var reader = new FileReader();
-    reader.readAsDataURL(this.fileData);
-    reader.onload = (_event) => {
-      this.previewUrl = reader.result;
-    }
-  }
-
   validateImage(obj: any): void {
     this.imageErrors = this.imageService.validateImage(obj);
     if (this.imageErrors.length <= 0) {
-      this.fileProgress(obj);
-      this.preview();
+      this.imageFinal = obj.target.files[0];
+      this.buttonDisabled = false;
+      const reader = new FileReader();
+      reader.readAsDataURL(this.imageFinal);
+      reader.onload = () => {
+			  this.previewUrl = reader.result;
+		  };
+
+      const imageAux = this.imageFinal.name.split('.');
+      this.imageName = `${imageAux[0]}_${
+        new Date().getTime() + '.' + imageAux[1]
+      }`;
+      this.filePath = `/images/${imageAux[0]}_${
+        new Date().getTime() + '.' + imageAux[1]
+      }`;
+
       this.isImage = true;
     } else {
       this.isImage = false;
       this.previewUrl = null;
+      this.buttonDisabled = true;
     }
   }
 

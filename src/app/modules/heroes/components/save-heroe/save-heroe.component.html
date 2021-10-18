@@ -1,62 +1,81 @@
-<div class="row">
-	<div class="col-12 box-title-modal">
-		<span class="title">Registro</span>
+<div class="save-heroe">
+	<div class="save-heroe__title-box">
+		<span class="save-heroe__title">Registro</span>
 	</div>
-</div>
-
-<div mat-dialog-content>
-	<div class="row-form">
-		<form [formGroup]="saveHeroeForm" autocomplete="off">
-			<div class="row text-center">
-				<div class="col-12">
-					<mat-form-field>
-						<mat-label class="label-input">Nombre</mat-label>
-						<input matInput formControlName="name" />
-						<mat-error *ngIf="name.hasError('required')">
-							Campo <strong>requerido</strong>
-						</mat-error>					
-					</mat-form-field>
-				</div>
-				<div class="col-12">
-					<mat-form-field>
-						<mat-label class="label-input">Biografía</mat-label>
-						<input matInput formControl="biography"/>
-						<mat-error *ngIf="biography.hasError('required')">
-							Campo <strong>requerido</strong>
-						</mat-error>						
-					</mat-form-field>
-				</div>
-			</div>
+	<form [formGroup]="saveHeroeForm" autocomplete="off">
+		<mat-form-field class="save-heroe__input">
+			<mat-label>Nombre</mat-label>
+			<input matInput formControlName="name" />
+			<mat-error *ngIf="name.hasError('required')">
+				*Campo <strong>requerido</strong>
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="save-heroe__input">
+			<mat-label>Biografía</mat-label>
+			<input matInput formControlName="biography" />
+			<mat-error *ngIf="biography.hasError('required')">
+				Campo <strong>requerido</strong>
+			</mat-error>
+		</mat-form-field>
 		
-			<div mat-dialog-actions>
-				<div class="row button-box text-center">
-					<div class="col-12">
-						<button
-							mat-raised-button
-							type="button"
-							class="btn-gen-default button-submit"
-							[ngClass]="{
-								'btn-succes-disabled': !saveHeroeForm.valid
-							}"
-							[disabled]="!saveHeroeForm.valid"
-							(click)="save()"
-							tabindex="-1"
-						>
-							Editar
-						</button>
-						<button
-							type="button"
-							mat-raised-button
-							class="btn-custom-back button-cancel"
-							(click)="close()"
-							tabindex="-1"
-						>
-							Cancelar
-						</button>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
+		<mat-form-field class="save-heroe__input" (click)="date.open()">
+			<mat-label class="date-input__label">
+				Aparición
+			</mat-label>
+			<input
+				matInput
+				class="date-input__input"
+				[matDatepicker]="date"
+				formControlName="appearance"
+				autocomplete="off"
+				readonly
+			/>
+			<mat-datepicker #date> </mat-datepicker>
+			<mat-datepicker-toggle matSuffix [for]="date">
+			</mat-datepicker-toggle>
+			<mat-error *ngIf="appearance.hasError('required')">
+				Campo <strong>requerido</strong>
+			</mat-error>
+		</mat-form-field>
 
+		<mat-form-field appearance="none" class="save-heroe__input">
+			<mat-label class="label-input">Casa</mat-label>
+			<mat-select formControlName="house">
+				<mat-option
+					*ngFor="let house of houses"
+					[value]="house.value">
+					{{ house.viewValue }}
+				</mat-option>
+			</mat-select>
+			<mat-error *ngIf="house.hasError('required')">
+				Campo <strong>requerido</strong>
+			</mat-error>
+		</mat-form-field>
+
+		<div class="col-12 button_upload">
+			<label for="uploadImage" class="btn-upload">
+				Subir imagen &nbsp;<i class="{{ class }}"></i>
+			</label>
+			<input
+				id="uploadImage"
+				formControlName="image"
+				type="file"
+				accept="image/jpg, image/png, image/jpeg"
+				(change)="validateImage($event)"
+			/>
+		</div>
+
+		<div class="save-heroe__preview-box" *ngIf="previewUrl">
+			<img [src]="previewUrl" class="save-heroe__preview"/>
+		</div>
+		<div class="save-heroe__button-box">
+			<button mat-raised-button type="button" color="primary"
+				[disabled]="!saveHeroeForm.valid || buttonDisabled" (click)="save()" tabindex="-1">
+				Editar
+			</button>
+			<button type="button" mat-raised-button class="btn-custom-back button-cancel" (click)="close()" tabindex="-1">
+				Cancelar
+			</button>
+		</div>
+	</form>
+</div>

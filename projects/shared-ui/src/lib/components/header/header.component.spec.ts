@@ -10,9 +10,4 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('plus', () => {
-    const result = component.plus(1, 2);
-    expect(result).toEqual(3);
-  });
 });

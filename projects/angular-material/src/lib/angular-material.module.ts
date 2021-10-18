@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AngularMaterialComponent } from './angular-material.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 const importExports = [
   MatFormFieldModule,
@@ -34,7 +35,8 @@ const importExports = [
   MatSortModule,
   MatProgressSpinnerModule,
   MatSliderModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatButtonModule
 ];
 
 @NgModule({

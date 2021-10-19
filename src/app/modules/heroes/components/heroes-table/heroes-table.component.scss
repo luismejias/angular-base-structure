@@ -2,8 +2,14 @@
   display: flex;
   flex-direction: column;
 
+  &__table {
+    min-width:1300px;
+  }
   &__item-header {
+    display: flex !important;
     justify-content: center;
+    height: 55px;
+    align-items: center;
   }
 
   &__biography {
@@ -29,7 +35,7 @@
   font-size: 30px;
   margin-left: 8px;
   &:hover {
-    color: red;
+    color: #B22222;
     transform: scale(1.2);
   }
 }

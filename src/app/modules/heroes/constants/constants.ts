@@ -1,6 +1,6 @@
 export const HOUSES = [
-	{ value: 'marvel', viewValue: 'Marvel' },
-	{ value: 'dc', viewValue: 'DC' }
+	{ value: 'Marvel', viewValue: 'Marvel' },
+	{ value: 'DC', viewValue: 'DC' }
 ];
 
 export const DOTTED_NUMBER = '/(d)(?=(d{3})+(?!d))/g';

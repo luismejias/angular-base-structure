@@ -11,24 +11,6 @@
     justify-content: space-between;
   }
 
-  &__btn-add {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid;
-    cursor: pointer;
-    width: auto;
-    height: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-    box-shadow: 2px 3px 2px #888888;
-    &:hover {
-      background-color: #3f51b5;
-      color: white;
-    }
-
-  }
-
   &__loading-shade{
     margin-top: 40px;
   }

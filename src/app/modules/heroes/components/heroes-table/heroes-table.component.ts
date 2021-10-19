@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,6 +14,9 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class HeroesTableComponent implements OnInit {
   @Input() dataSource = new MatTableDataSource<Heroe>([]);
+  @Output() handleDataEdit = new EventEmitter();
+  @Output() handleDataDelete = new EventEmitter(); 
+
   displayedColumns: string[] = ['id', 'name', 'biography', 'image', 'appearance', 'house', 'edit', 'delete'];
   isLoadingResults: boolean = true;
   isRateLimitReached: boolean = false;
@@ -31,5 +34,13 @@ export class HeroesTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  onEditClick(heroe: Heroe) {
+		this.handleDataEdit.emit(heroe);
+	}
+
+  onDeleteClick(id: string) {
+		this.handleDataDelete.emit(id);
+	}
 
 }

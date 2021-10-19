@@ -5,14 +5,14 @@
 	<form [formGroup]="saveHeroeForm" autocomplete="off">
 		<mat-form-field class="save-heroe__input">
 			<mat-label>Nombre</mat-label>
-			<input matInput formControlName="name" />
+			<input matInput formControlName="name" suChangeToUppercase />
 			<mat-error *ngIf="name.hasError('required')">
 				*Campo <strong>requerido</strong>
 			</mat-error>
 		</mat-form-field>
 		<mat-form-field class="save-heroe__input">
 			<mat-label>Biografía</mat-label>
-			<input matInput formControlName="biography" />
+			<textarea matInput formControlName="biography"></textarea>
 			<mat-error *ngIf="biography.hasError('required')">
 				Campo <strong>requerido</strong>
 			</mat-error>
@@ -44,8 +44,8 @@
 			</mat-error>
 		</mat-form-field>
 
-		<div class="col-12 button_upload">
-			<label for="uploadImage" class="btn-upload">
+		<div class="button_upload">
+			<label for="uploadImage" class="btn-upload btn-secundary">
 				Subir imagen &nbsp;<i class="{{ class }}"></i>
 			</label>
 			<input id="uploadImage" formControlName="image" type="file" accept="image/jpg, image/png, image/jpeg"
@@ -60,11 +60,12 @@
 			<img [src]="previewUrl" class="save-heroe__preview" />
 		</div>
 		<div class="save-heroe__button-box">
-			<button mat-raised-button type="button" color="primary" [disabled]="!saveHeroeForm.valid || buttonDisabled"
+			<button mat-raised-button type="button" class="btn-primary" [disabled]="!saveHeroeForm.valid || buttonDisabled"
+				[ngClass]="{ 'btn-disabled': !saveHeroeForm.valid }"
 				(click)="save()" tabindex="-1">
-				Editar
+				Guardar
 			</button>
-			<button type="button" mat-raised-button class="btn-custom-back button-cancel" (click)="close()" tabindex="-1">
+			<button type="button" mat-raised-button class="btn-secundary save-heroe__button-space" (click)="close()" tabindex="-1">
 				Cancelar
 			</button>
 		</div>

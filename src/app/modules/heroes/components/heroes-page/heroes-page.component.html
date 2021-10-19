@@ -5,13 +5,18 @@
       <mat-icon matSuffix>search</mat-icon>
       <input matInput formControlName="searchField" placeholder="Búsqueda por Nombre o Id"/>
     </mat-form-field>
-    <span  class="heroes-page__btn-add" (click)="addHeroe();">
+    <div class="btn-primary" (click)="addHeroe();">
       Agregar
-    </span>
+    </div>
   </form>
   <div class="heroes-page__loading-shade" *ngIf="loadingData">
     <mat-spinner></mat-spinner>
   </div>
-  <app-heroes-table  [dataSource]="dataSource" *ngIf="!loadingData && dataSourceLength"></app-heroes-table>
+  <app-heroes-table  
+    [dataSource]="dataSource"
+    (handleDataEdit)="editHeroe($event);"
+    (handleDataDelete)="deleteHeroe($event);" 
+    *ngIf="!loadingData && dataSourceLength">
+  </app-heroes-table>
   <su-no-data-found *ngIf="!loadingData && !dataSourceLength"></su-no-data-found>
 </div>

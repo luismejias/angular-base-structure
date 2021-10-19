@@ -1,4 +1,4 @@
-.edit-heroe {
+.delete-heroe {
   display: flex;
   flex-direction: column;
   width: 450px;
@@ -7,31 +7,29 @@
     color: #0D47A1;
   }
 
-  &__input {
-    width: 100%;
-    margin:10px 0px;
-  }
-
-  &__preview-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  &__preview {
-    width: 100px;
-    height: 100px;
-  }
-
-  &__imageErrors {
-    margin-top: 10px;
-  }
-
   &__title-box {
-    border-left: 8px solid #FFC300;
+    border-left: 8px solid #B22222;
     padding-left: 4px;
     margin-bottom: 20px;
+  }
+
+  &__central-text {
+    font-size: 18px;
+    color: #212121;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__image-box {
+		display: flex;
+		justify-content: center;
+	}
+
+  &__image {
+
+    width: "222px";
   }
 
   &__button-box {

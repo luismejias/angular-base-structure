@@ -65,15 +65,12 @@ export class SaveHeroeComponent implements OnInit {
 				Validators.compose([
 					Validators.maxLength(50),
 					Validators.minLength(2),
-					Validators.pattern(/^[0-9a-zA-Z.-\w\s\u00f1 \u00d1]*$/),
 					Validators.required,
 				]),
 			],
 			biography: ['',
         Validators.compose([
-					Validators.maxLength(250),
 					Validators.minLength(2),
-					Validators.pattern(/^[0-9a-zA-Z.-\w\s\u00f1 \u00d1]*$/),
 					Validators.required,
 				]),
 			],
@@ -107,7 +104,7 @@ export class SaveHeroeComponent implements OnInit {
     return this.saveHeroeForm.get('name');
   }
 
-  save() {    
+  save() {
     let id = 12;
     id++;
     let idAux = id.toString();

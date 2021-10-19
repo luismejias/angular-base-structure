@@ -15,12 +15,10 @@
     "target": "es2015",
     "paths": {
       "@bs-angular-material": [
-        "dist/angular-material/angular-material",
-        "dist/angular-material"
+        "projects/angular-material/src"
       ],
       "@bs-shared-ui": [
-        "dist/shared-ui/shared-ui",
-        "dist/shared-ui"
+        "projects/shared-ui/src"
       ]
     },
     "module": "es2020",

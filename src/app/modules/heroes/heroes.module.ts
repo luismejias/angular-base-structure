@@ -8,6 +8,7 @@ import { SharedUiModule } from '@bs-shared-ui';
 import { HeroeService } from './services/heroe.service';
 import { SaveHeroeComponent } from './components/save-heroe/save-heroe.component';
 import { EditHeroeComponent } from './components/edit-heroe/edit-heroe.component';
+import { DeleteHeroeComponent } from './components/delete-heroe/delete-heroe.component';
 
 
 
@@ -16,7 +17,8 @@ import { EditHeroeComponent } from './components/edit-heroe/edit-heroe.component
     HeroesTableComponent,
     HeroesPageComponent,
     SaveHeroeComponent,
-    EditHeroeComponent
+    EditHeroeComponent,
+    DeleteHeroeComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-FROM node:14.16.0 as build-step
+FROM node:14-alpine as build-step
 
 RUN mkdir -p /app
 
@@ -8,10 +8,9 @@ COPY package.json /app
 
 RUN npm install
 
+COPY . /app
+
 RUN npm run build --prod
 
-#Segunda etapa
-
-FROM nginx:1.21.3-alpine
-
+FROM nginx:1.17.1-alpine
 COPY --from=build-step /app/dist/angular-base-structure /usr/share/nginx/html

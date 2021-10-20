@@ -1,4 +1,4 @@
-FROM node:14.16.01
+FROM node:14.16.0 as build-step
 
 RUN mkdir -p /app
 
@@ -12,8 +12,6 @@ RUN npm run build --prod
 
 #Segunda etapa
 
-FROM nginix:1.21.3-alpine
+FROM nginx:1.21.3-alpine
 
 COPY --from=build-step /app/dist/angular-base-structure /usr/share/nginx/html
-COPY --from=build-step /app/dist/angular-material /usr/share/nginx/html
-COPY --from=build-step /app/dist/shared-ui /usr/share/nginx/html

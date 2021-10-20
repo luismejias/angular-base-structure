@@ -45,7 +45,7 @@
 		</mat-form-field>
 
 		<div class="col-12 button_upload">
-			<label for="uploadImage" class="btn-upload btn-secundary">
+			<label for="uploadImage" class="btn-upload btn-primary">
 				Subir imagen &nbsp;<i class="{{ class }}"></i>
 			</label>
 			<input id="uploadImage" formControlName="image" type="file" accept="image/jpg, image/png, image/jpeg"
@@ -60,12 +60,12 @@
 			<img [src]="previewUrl" class="edit-heroe__preview" />
 		</div>
 		<div class="edit-heroe__button-box">
-			<button mat-raised-button type="button" class="btn-primary" [disabled]="!editHeroeForm.valid || buttonDisabled"
+			<button type="button" class="btn-primary" [disabled]="!editHeroeForm.valid || buttonDisabled"
         [ngClass]="{ 'btn-disabled': !editHeroeForm.valid || buttonDisabled }"
 				(click)="edit()" tabindex="-1">
 				Editar
 			</button>
-			<button type="button" mat-raised-button class="btn-secundary edit-heroe__button-space" (click)="close()" tabindex="-1">
+			<button type="button"  class="btn-secundary edit-heroe__button-space" (click)="close()" tabindex="-1">
 				Cancelar
 			</button>
 		</div>

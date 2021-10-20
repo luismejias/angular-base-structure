@@ -12,7 +12,7 @@ RUN npm run build --prod
 
 #Segunda etapa
 
-FROM nginix:1.17.1-alpine
+FROM nginix:1.21.3-alpine
 
 COPY --from=build-step /app/dist/angular-base-structure /usr/share/nginx/html
 COPY --from=build-step /app/dist/angular-material /usr/share/nginx/html

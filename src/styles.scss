@@ -42,11 +42,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btn-secundary {
 	display: flex;
 	background-color: transparent;
-	border: 1px solid #0D47A1;
+	border: 1px solid #B22222;
 	border-radius: 4px;
 	min-width: 110px;
 	height: 24px;
-	color: #0D47A1;
+	color: #B22222;
 	cursor: pointer;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
 	font-size: 16px;
@@ -55,7 +55,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	align-items: center;
 	width: auto;
 	&:hover {
-		background-color: #0D47A1;
+		background-color: #B22222;
 		color: #fff;
 	}
 }

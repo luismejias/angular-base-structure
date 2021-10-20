@@ -9,7 +9,4 @@ module.exports = {
   "transform": {
     "^.+\\.(ts|tsx)$": "ts-jest"
   }, 
-  moduleNameMapper: {
-     "^@fs/(.*)$": "<rootDir>/src/lib/$1"
-   }
 }

@@ -23,6 +23,14 @@ export const appRoutes: Routes = [
       ),
   },
   {
+    path: 'heroes',
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import(`./modules/heroes/heroes.module`).then(
+        (module) => module.HeroesModule
+      ),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'dashboard',

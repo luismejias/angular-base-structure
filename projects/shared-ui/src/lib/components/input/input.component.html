@@ -15,20 +15,20 @@
 			[placeholder]="placeholder"
 			[minLength]="minLength"
 			[maxLength]="maxLength"/>
-			<mcy-icon matPrefix *ngIf="prefixIcon" class="general-input__prefix-icon">
+			<mat-icon matPrefix *ngIf="prefixIcon"class="material-icons">
 				{{prefixIcon}}
-			</mcy-icon>
-			<mcy-icon matSuffix *ngIf="icon" class="general-input__icon">
+			</mat-icon>
+			<mat-icon matSuffix *ngIf="icon" class="general-input__icon">
 				{{icon}}
-			</mcy-icon>
-			<mcy-icon
+			</mat-icon>
+			<mat-icon
 				matSuffix
 				*ngIf="type === 'password'"
 				class="general-input__password-icon"
 				(click)="onPasswordIconClick()"
 			>
 				{{ passwordIcon }}
-			</mcy-icon>
+			</mat-icon>
 		<mat-error>
 			<span 
 				*ngIf="inputField.errors && inputField.errors.positiveValidationError"
